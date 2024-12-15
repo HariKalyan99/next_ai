@@ -1,4 +1,3 @@
-"use client"
 import PromtCard from "./PromtCard";
 
 const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {

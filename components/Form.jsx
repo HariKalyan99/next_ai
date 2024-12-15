@@ -37,7 +37,7 @@ const Form = ({type,
         </Link>
 
       <button type='submit' disabled={submitting} className='px-5 py-1.5 text-sm bg-[black] rounded-full text-white hover:bg-[white] hover:text-black'>
-        {submitting ? `${type}...` : type}
+        {submitting ? `${type}ing...` : type}
       </button>
       </div>
 

@@ -20,12 +20,13 @@ const Feed = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+
     const fetchPosts = async () => {
       const response = await fetch("/api/promt");
       const data = await response.json();
       setPosts(data);
     };
-
+    
     fetchPosts();
   }, []);
 

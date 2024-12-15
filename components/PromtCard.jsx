@@ -13,7 +13,7 @@ const PromtCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
 
   const handleCopy = () => {
     steCopied(post.promt);
-    navigator.clipboard.writeText(post.promt);
+    navigator?.clipboard.writeText(post.promt);
     setTimeout(() => steCopied("", 3000))
   }
   const handleProfileClick = () => {
