@@ -9,7 +9,7 @@ const Profile = ({ name, desc, data, handleEdit, handleDelete }) => {
       </h1>
       <p className='desc text-left'>{desc}</p>
 
-      <div className='mt-10 prompt_layout'>
+      <div className='mt-10 flex flex-wrap gap-3'>
         {data.map((post) => (
           <PromtCard
             key={post._id}
