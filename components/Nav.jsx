@@ -31,7 +31,7 @@ const Nav = () => {
       </Link>
 
       {/* mob */}
-      <div className="sm:flex hidden">
+      <div className="sm:flex hidden flex relative">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link href={"/create-promt"} className="black_btn">
@@ -41,12 +41,12 @@ const Nav = () => {
             <button type="button" onClick={signOut} className="outline_btn">
               Sign Out
             </button>
-            <Link href={"profile"}>
+            <Link href={"/profile"}>
               <Image
-                src={"/assets/images/logo.png"}
+                src={session?.user.image}
                 width={37}
                 height={37}
-                className="rounded-full"
+                className="rounded-full cursor-pointer"
                 alt="profile"
               />
             </Link>
@@ -60,11 +60,10 @@ const Nav = () => {
         )}
       </div>
 
-
       <div className="sm:hidden flex relative">
         {session?.user ? (
             <div className="flex">
-                <Image src={"/assets/images/logo.png"} width={37} height={37} className="rounded-full" alt="profile" onClick={() => setToggleDropdown((prev) => !prev)}/>
+                <Image src={session?.user.image} width={37} height={37} className="rounded-full cursor-pointer" alt="profile" onClick={() => setToggleDropdown((prev) => !prev)}/>
                 {toggleDropdown && (<div className="dropdown">
                   <Link href={"/profile"} className="dropdown_link" onClick={() => setToggleDropdown((prev) => !prev)}>
                   My Profile

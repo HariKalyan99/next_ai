@@ -6,17 +6,16 @@ export const connectToDB = async () => {
     mongoose.set('strictQuery', true);
 
     if(isConnected){
-        console.log('MongoDB has been connected.');
+        console.log('MongoDB is already connected.');
         return;
     }
 
     try {
         await mongoose.connect(process.env.MONGODB_URI, {
-            dbName: "share_promt",
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+            dbName: "share_promt"
         })
         isConnected =true;
+        console.log("MongoDB connected");
     } catch (error) {
         console.log(error);
     }
