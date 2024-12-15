@@ -1,9 +1,43 @@
-import React from 'react'
+"use client";
 
-const Feed = () => {
+import React, { useEffect, useState } from "react";
+import PromtCard from "./PromtCard";
+
+const PromtCardList = ({data, handleTagClick}) => {
   return (
-    <div>Feed</div>
+    <div className="mt-16 promt_layout">
+      {data.map((post) => (
+        <PromtCard key={post._id} post={post} handleTagClick={handleTagClick}/>
+      ))}
+    </div>
   )
 }
 
-export default Feed
+const Feed = () => {
+  const [searchText, setSearchText] = useState("");
+  const [posts, setPosts] = useState([]);
+
+  const handleSearchChange = (e) => {
+
+  }
+
+  useEffect(() => {
+    const fetchPosts = async() => {
+      const response = await fetch('/api/promt');
+      const data = await response.json();
+      setPosts(data);
+    }
+
+    fetchPosts();
+  }, [])
+  return (<section className="feed">
+      <form className="relative w-full flex-center">
+        <input type="text" placeholder="Search for a tag or username"
+        value={searchText} onChange={handleSearchChange} className="search_input peer"/>
+      </form>
+
+      <PromtCardList data={posts} handleTagClick={() => {}}/>
+  </section>);
+};
+
+export default Feed;

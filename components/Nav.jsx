@@ -26,6 +26,7 @@ const Nav = () => {
           width={40}
           height={40}
           className="object-contain"
+          alt="profile_img"
         />
         <p className="logo_text">Tron's AI</p>
       </Link>
