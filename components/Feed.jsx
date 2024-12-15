@@ -14,8 +14,8 @@ const PromtCardList = ({ data, handleTagClick }) => {
 };
 
 const Feed = () => {
-  const [searchText, setSearchText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchText, setSearchText] = useState("");
   const [searchedResults, setSearchedResults] = useState([]);
   const [posts, setPosts] = useState([]);
 
@@ -69,13 +69,16 @@ const Feed = () => {
           required
         />
       </form>
-     <section className="w-full">
-     {searchText ? (
-        <PromtCardList data={searchedResults} handleTagClick={handleTagClick} />
-      ) : (
-        <PromtCardList data={posts} handleTagClick={handleTagClick} />
-      )}
-     </section>
+      <section className="w-full">
+        {searchText ? (
+          <PromtCardList
+            data={searchedResults}
+            handleTagClick={handleTagClick}
+          />
+        ) : (
+          <PromtCardList data={posts} handleTagClick={handleTagClick} />
+        )}
+      </section>
     </section>
   );
 };

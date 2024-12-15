@@ -10,7 +10,6 @@ export const metadata = {
   icons: {
     icon: "/assets/images/logo.png",
   },
-   
 };
 
 const RootLayout = ({ children }) => {
@@ -23,11 +22,10 @@ const RootLayout = ({ children }) => {
           </div>
 
           <Suspense>
-
-          <main className="app">
-            <Nav />
-            {children}
-          </main>
+            <main className="app">
+              <Nav />
+              {children}
+            </main>
           </Suspense>
         </Provider>
       </body>
