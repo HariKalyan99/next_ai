@@ -53,13 +53,15 @@ const Updatepromt = () => {
   };
 
   return (
-      <Form
+      <Suspense>
+        <Form
         type="Edit"
         getPost={post}
         setPost={setPost}
         submitting={submitting}
         handleSubmit={updatepromt}
       />
+      </Suspense>
   );
 };
 
