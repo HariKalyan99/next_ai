@@ -43,7 +43,6 @@ const Form = ({type,
 
       </form>
     </section>
-    // <Link>Form</Link>
   )
 }
 

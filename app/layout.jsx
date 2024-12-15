@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "@styles/global.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
@@ -22,7 +22,9 @@ const RootLayout = ({ children }) => {
           </div>
           <main className="app">
             <Nav />
+            <Suspense>
             {children}
+            </Suspense>
           </main>
         </Provider>
       </body>
