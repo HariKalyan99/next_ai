@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import PromtCard from "./PromtCard";
 
 const PromtCardList = ({ data, handleTagClick }) => {
@@ -58,6 +58,7 @@ const Feed = () => {
     setSearchedResults(searchResult);
   };
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <section className="feed">
       <form className="relative w-full flex-center">
         <input
@@ -77,6 +78,7 @@ const Feed = () => {
       )}
      </section>
     </section>
+    </Suspense>
   );
 };
 
