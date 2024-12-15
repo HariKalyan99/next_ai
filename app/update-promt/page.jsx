@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
@@ -10,7 +10,7 @@ const Updatepromt = () => {
   const searchParams = useSearchParams();
   const promtId = searchParams.get("id");
 
-  const [post, setPost] = useState({ promt: "", tag: "", });
+  const [post, setPost] = useState({ promt: "", tag: "" });
   const [submitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -53,13 +53,15 @@ const Updatepromt = () => {
   };
 
   return (
-    <Form
-      type='Edit'
-      getPost={post}
-      setPost={setPost}
-      submitting={submitting}
-      handleSubmit={updatepromt}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Form
+        type="Edit"
+        getPost={post}
+        setPost={setPost}
+        submitting={submitting}
+        handleSubmit={updatepromt}
+      />
+    </Suspense>
   );
 };
 
