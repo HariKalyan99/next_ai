@@ -8,9 +8,9 @@ import Form from "@components/Form";
 const Updatepromt = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const promtId = searchParams?.get("id");
+  const promtId = searchParams.get("id");
 
-  const [post, setPost] = useState({ promt: "", tag: "" });
+  const [post, setPost] = useState({ promt: "", tag: "", });
   const [submitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -53,15 +53,13 @@ const Updatepromt = () => {
   };
 
   return (
-      <Suspense>
-        <Form
-        type="Edit"
-        getPost={post}
-        setPost={setPost}
-        submitting={submitting}
-        handleSubmit={updatepromt}
-      />
-      </Suspense>
+    <Form
+      type='Edit'
+      getPost={post}
+      setPost={setPost}
+      submitting={submitting}
+      handleSubmit={updatepromt}
+    />
   );
 };
 
